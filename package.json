@@ -1,0 +1,17 @@
+{
+  "name": "outfit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "initi": "npm install && cd outfir-frontend && npm install && cd.. && cd outfit-backend- && npm install && cd.. ",
+    "dev": "concurrently \"cd outfir-frontend && npm run dev\"  \"cd outfit-backend- && npm run dev\"",
+    "start": "cd outfir-frontend && npm run build  && cd .. && concurrently \"outfit-backend- && npm run strat\" \"cd outfir-frontend && npm run preview\"  ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

@@ -1,0 +1,30 @@
+.loader{
+
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 100%;
+
+    border: 10px solid yellow;
+    animation: spin 2s ease-in-out 1s infinite ;
+    animation: spin 2s ease-in-out 0s infinite normal forwards;
+}
+
+@keyframes spin {
+    0%   {
+        border: 10px solid red;
+    transform: rotate(20deg);
+    }
+    25%  {border:10px solid  yellow;
+        transform: rotate(60deg);
+    }
+    50%  {border : 10px solid  blue;
+        transform: rotate(120deg);
+    }
+    70%  {border:10px solid  blue;
+        transform: rotate(150deg);
+    }
+    100% {border:10px solid  green;
+    
+        transform: rotate(180deg);}
+}
