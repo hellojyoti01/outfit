@@ -37,7 +37,7 @@ function SigninCompunents() {
 					<div className={s.input}>
 						<label htmlFor='email'>Email</label>
 						<input
-							type='tex'
+							type='text'
 							required
 							placeholder='email'
 							area-label='email'
