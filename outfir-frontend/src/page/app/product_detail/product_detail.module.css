@@ -1,0 +1,51 @@
+.container{
+    width: 100%;
+    height: 600px;
+
+    position: relative;
+    top: 10px;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.product > img {
+    width: 400px;
+    position: relative;
+    top: 30px;
+    height: calc(100vh - 30vh);
+    border-radius: 30px;
+}
+
+.btn{
+    margin-top: 50px;
+    position: absolute;
+   
+}
+.btn > button {
+    display: inline-block;
+
+    margin-left: 70px;
+    margin-top: 30px;
+
+    background-color: blueviolet;
+
+    width: 100px;
+    height: 50px;
+
+    border-radius: 30px;
+
+ cursor: pointer;
+}
+.product_desc{
+    position: absolute;
+    width: 400px;
+    background-color: darkcyan;
+
+    border-radius: 10px;
+
+    padding: 20px;
+}

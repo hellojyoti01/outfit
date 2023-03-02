@@ -1,11 +1,56 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react'
 import s from './navigation.module.css'
 import { useAuth } from '../../context/auth.provider'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
+import { useSelector } from 'react-redux'
+import cartIcon from '../../../public/cart-icon.svg'
+
+import NavigationModel from './navigation_model/navigation_model'
 
 function Navigation() {
-  const { user ,  signOut } = useAuth()
+  const { user, signOut } = useAuth()
+  const [open, setOpen] = useState(false)
+  const [item, setItem] = useState([])
   
+
+
+  //redux ---
+
+  const value = useSelector(({cart}) => cart.value)
+  //console.log(value , "Store Value")
+
+  const fetchData = async (value) => {
+    //console.log(value)
+    try {
+      
+      const { data } = await axios.get(`product/look_up/${value}`)
+      // let title = data.payload;
+      // title.forEach((el) => {
+      //   setItem([el.title])
+      // })
+     // console.log(data)
+      let item = data.payload
+      setItem([...item])
+      setOpen(true)
+    }catch(e){}
+  }
+
+  const handelChange = async (e) => {
+   // console.log(e.target.value)
+    let el = e.target.value 
+    if (el.length > 2) {
+      fetchData(e.target.value)
+    } else {
+      setOpen(false)
+    }
+    
+}
+  
+
+
+
   // console.log(user , "Profile User")
   const navigate = useNavigate()
   const handelLognIn = (e) => {
@@ -17,13 +62,18 @@ function Navigation() {
 
     signOut()
   }
+
+
+
   return (
+    <div>
     <nav className={s.wrapper}>
       <div className={s.left}>
         <img src='../../../public/logo.svg' alt={`logo`} />
       </div>
       <div className={s.search_box}>
-        <input />
+        <input onChange={handelChange} />
+        {/* <span>x</span> */}
         <img src='../../../public/filter_timeline.svg'  alt='filter' />
       </div>
       <div className={s.content_menu}
@@ -31,7 +81,11 @@ function Navigation() {
       >
         <img src={ user ? user.payload.profile : '../../../public/login-.svg' } alt="profile" />
       </div>
-    </nav>
+        {value > 0 ? <span><img src={cartIcon} alt="Cart" /> {value}</span>:  <img src={ cartIcon} alt="Cart" />}
+      </nav>
+
+      <NavigationModel item={item} open={ open} />
+      </div>
   )
 }
 
