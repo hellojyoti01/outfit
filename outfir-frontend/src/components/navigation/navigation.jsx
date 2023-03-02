@@ -15,7 +15,7 @@ function Navigation() {
 	const [item, setItem] = useState([]);
 
 	//redux ---
-
+	console.log(user);
 	const value = useSelector(({ cart }) => cart.value);
 
 	const fetchData = async (value) => {

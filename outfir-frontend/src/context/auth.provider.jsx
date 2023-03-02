@@ -11,12 +11,12 @@ const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const [user, setUser] = useState(null);
 	const [token, setToken] = useState(() => {
-		const token = localStorage.getItem("outFit-Token");
+		let token = localStorage.getItem("outFit-Token");
 
 		if (token) {
 			axios.defaults.headers.common["Authorization"] = token;
+			return token;
 		}
-		return token;
 	});
 
 	//Who am i   User Info
@@ -37,10 +37,11 @@ const AuthProvider = ({ children }) => {
 		});
 
 		const Token = data.payload;
+
 		if (data.status) {
 			axios.defaults.headers.common["Authorization"] = Token;
-			localStorage.setItem("outFit-Token", Token);
 			setToken(Token);
+			localStorage.setItem("outFit-Token", Token);
 		}
 	};
 
@@ -59,13 +60,11 @@ const AuthProvider = ({ children }) => {
 			const Token = data.payload;
 
 			axios.defaults.headers.common["Authorization"] = Token;
-			localStorage.setItem("outFit-Token", Token);
 			setToken(Token);
+			localStorage.setItem("outFit-Token", Token);
 		} catch (e) {
 			console.log(e, "Error");
 		}
-
-		// console.log(data)
 	};
 
 	//Sign out
