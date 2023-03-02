@@ -1,38 +1,60 @@
-
-.uploader{
-   
-    position: relative; 
-    width: 80%;
+.uploader {
+	position: relative;
+	width: 80%;
+	top: 6px;
 }
 
-.profileUploder{
-    position: relative;
-    width: 100px;
-    height: 70px;
-    background-color: rgba(154, 241, 247, 0.657);
-    /* position: absolute; */
-   
+/* .profileUploder,
+ion-icon.uploaderIcon {
+	position: relative;
+	width: 100px;
+	height: 70px;
+	background-color: rgba(154, 241, 247, 0.657);
+	/* position: absolute; */
 
-    border: 2px solid yellow;
+/* border: 2px solid yellow;
 
-    border-radius: 100px;
-}
-
+	border-radius: 100px;
+} */
 .uploader > input {
+	/* display: none; */
 
-    /* display: none; */
+	opacity: 0;
 
-    opacity: 0;
+	width: 70px;
+	height: 70px;
+	top: 0.1px;
+	left: 0;
 
-    width: 100px;
-    height: 70px;
-    top: 0.1px;
-    left: 0;
+	border-radius: 100px;
+	position: absolute;
 
+	background-color: blue;
+}
 
-    border-radius: 100px;
-    position: absolute;
+.profileUploader {
+	background-color: transparent;
+	width: 70px;
+	height: 70px;
 
-    background-color: blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
+	border-radius: 80px;
+
+	border: 5px solid #fff;
+}
+/* .profileUploader > .uploaderIcon {
+	display: none;
+	background-color: aliceblue;
+	width: 200px;
+	color: #fff;
+} */
+.profileUploader > .profilePhoto {
+	box-shadow: 1px 2px 1px #fff;
+	width: 60px;
+	height: 60px;
+
+	border-radius: 30px;
 }

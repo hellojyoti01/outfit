@@ -14,7 +14,7 @@ section {
 .fromBox {
 	position: relative;
 	width: 400px;
-	height: 450px;
+	height: 550px;
 	background-color: transparent;
 	border: 2px solid rgba(255, 255, 255, 0.6);
 	border-radius: 20px;
@@ -50,7 +50,7 @@ h2 {
 }
 
 input:focus ~ label,
-input:valid ~ :valid {
+input:valid ~ label {
 	top: -5px;
 }
 
@@ -66,13 +66,44 @@ input:valid ~ :valid {
 	padding: 0 35px 0 5px;
 	color: #fff;
 }
-
 .inputBox ion-icon {
 	position: absolute;
 	right: 8px;
 	color: #fff;
 	font-size: 1.2em;
 	top: 28px;
+}
+.inputBoxRadio {
+	position: relative;
+	margin: 30px 0;
+	width: 310px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	/* background-color: red; */
+}
+.inputBoxRadio input[type="radio"] {
+	width: 100%;
+	height: 25px;
+
+	background: transparent;
+	border: none;
+	outline: none;
+
+	font-size: 1em;
+	padding: 0 35px 0 5px;
+	color: transparent;
+}
+.inputBoxRadio label {
+	/* position: absolute;
+	/* top: 50%;
+	left: 5px;
+	transform: translate(-50%); */
+	color: #fff;
+	font-size: 1em;
+
+	pointer-events: none;
+	transition: 0.5s;
 }
 .forget {
 	margin: -15px 0 15px;
